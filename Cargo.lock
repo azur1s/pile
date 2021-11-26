@@ -99,7 +99,6 @@ dependencies = [
  "byte-unit",
  "chrono",
  "colored",
- "libc",
 ]
 
 [[package]]

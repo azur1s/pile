@@ -2,7 +2,11 @@ use std::path::PathBuf;
 
 pub fn get_info(path: PathBuf) -> String {
 
-    let file_ext = path.extension().expect("Invalid PathBuf.").to_string_lossy();
+    let file_ext = path.extension();
+    let file_ext = match file_ext {   
+        Some(ext) => ext.to_str().unwrap(),
+        None => "none",
+    };    
 
     match &*file_ext {
 
@@ -25,9 +29,12 @@ pub fn get_info(path: PathBuf) -> String {
             "Lossy compressed digital image file.".into()
         }
 
-        // No file extension
+        "none" => {
+            "Bash shell script file.".into()
+        }
+
         _ => {
-            "File.".into()
+            "Unknown file.".into()
         }
     }
 
