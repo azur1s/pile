@@ -1,11 +1,12 @@
-use std::{env, os::linux::fs::MetadataExt};
-use std::path::PathBuf;
-use std::fs::metadata;
+use std::{
+    env,
+    os::linux::fs::MetadataExt,
+    path::PathBuf,
+    fs::metadata,
+};
 
 use byte_unit::Byte;
-
 use chrono::{DateTime, Utc};
-
 use colored::Colorize;
 
 mod info;

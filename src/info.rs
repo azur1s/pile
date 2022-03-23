@@ -8,35 +8,29 @@ pub fn get_info(path: PathBuf) -> String {
         None => "none",
     };    
 
-    match &*file_ext {
+    let info: &str = match &*file_ext {
 
-        // Programming language
-        "rs" => {
-            "Rust source code file.".into()
-        }
-        "go" => {
-            "Go source code file.".into()
-        }
-        "sh" => {
-            "Bash shell script file.".into()
-        }
+        // Text file
+        "rs" => "Rust source code file.",
+        "go" => "Go source code file.",
+        "sh" => "Bash shell script file.",
+        "js" => "Javascript source code file.",
+        "ts" => "Typescript source code file.",
+        
+        "md" => "Markdown file",
+        "html" => "HyperText Markup Language file",
+        "txt" => "Text file",
 
         // Media file
-        "png" => {
-            "Portable Network Graphics image file.".into()
-        }
-        "jpeg" => {
-            "Lossy compressed digital image file.".into()
-        }
+        "png" => "Portable Network Graphics image file.",
+        "jpeg" => "Lossy compressed digital image file.",
 
-        "none" => {
-            "Bash shell script file.".into()
-        }
+        // TODO: maybe check the file's content eg. "LICENSE" file can be mistaken as native
+        // executable
+        "none" => "Native executable",
 
-        _ => {
-            "Unknown file.".into()
-        }
-    }
+        _ => "Unknown file.",
+    };
 
+    return info.into();
 }
-
